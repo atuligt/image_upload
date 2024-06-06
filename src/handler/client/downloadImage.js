@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 const path = require("path");
 const { verifyToken } = require("../../utilis/utilis");
 const { downloadImageValidator } = require("../../utilis/validator");
