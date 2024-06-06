@@ -10,6 +10,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("uploads"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/pingTest",(req, res)=>{
+        return res.status(200).json({ message:"In index call"});
+})
 app.use('/admin', AdminRoutes);
 app.use('/client', clientRoutes);
 
