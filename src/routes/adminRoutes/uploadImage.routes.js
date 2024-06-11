@@ -6,7 +6,7 @@ const ROUTES = express.Router();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/images");
+    cb(null,  path.join(__dirname, "../../../uploads/images"));
   },
   filename: function (req, file, cb) {
     cb(
@@ -16,18 +16,18 @@ const storage = multer.diskStorage({
   },
 });
 function checkFileType(file, cb) {
-  const filetypes = /jpeg|jpg|png|gif/;
+  const filetypes = /jpeg|jpg|png/;
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   const mimetype = filetypes.test(file.mimetype);
 
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb("Error: Images only! (jpeg, jpg, png, gif)");
+    cb("Error: Images only! (jpeg, jpg, png)");
   }
 }
 const upload = multer({
-  storage: storage,
+  storage: storage, 
   fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   },
