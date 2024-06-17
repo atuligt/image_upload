@@ -34,7 +34,7 @@ const ROUTES = express.Router();
 // });
 const upload = multer({
   storage: multer.diskStorage({
-      destination: '../../../uploads/images', // Uploads directory in your Vercel project
+      destination: '/var/task/uploads/images', // Uploads directory in your Vercel project
       filename: function (req, file, cb) {
           cb(null, file.originalname); // Use the original filename
       }
