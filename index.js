@@ -25,7 +25,7 @@ app.get("/pingTest", (req, res) => {
     console.log("Images folder already exists.");
   }
   console.log("Uploads folder path:", uploadsPath);
-  console.log("Images folder path", imagesPath);
+  console.log("Images folder path", imagesFolderPath);
   return res.status(200).json({ message: "In index call" });
 });
 app.use("/admin", AdminRoutes);
