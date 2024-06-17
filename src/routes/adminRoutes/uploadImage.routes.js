@@ -40,9 +40,13 @@ const ROUTES = express.Router();
 //       }
 //   })
 // });
+const uploadDir = '/tmp/uploads/images';
+if (!fs.existsSync(uploadDir)){
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 const storage = multer.diskStorage({
-  destination: '/tmp/uploads/images',
+  destination: uploadDir,
   filename: function(req, file, cb) {
       const extension = file.originalname.split('.').pop();
       cb(null, file.originalname);
