@@ -45,7 +45,7 @@ const storage = multer.diskStorage({
   destination: '/tmp/uploads/images',
   filename: function(req, file, cb) {
       const extension = file.originalname.split('.').pop();
-      cb(null, `file.originalname`);
+      cb(null, file.originalname);
   }
 });
 
